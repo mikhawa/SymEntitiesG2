@@ -68,3 +68,8 @@ DATABASE_URL="mysql://root:@127.0.0.1:3306/symentitiesg2?serverVersion=8.0.31&ch
 ###< doctrine/doctrine-bundle ###
 ```
 
+### Création de la DB
+
+    php bin/console doctrine:database:create
+    
+    Created database `symentitiesg2` for connection named default
