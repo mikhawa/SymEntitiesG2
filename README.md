@@ -42,3 +42,29 @@ on change :
 ```
 
 ** ! Si vous faites un commit, vérifiez que les fichiers non nécessaires se trouvent dans le `.gitignore` !
+
+### Faites régulièrement des commits !
+
+En cas de gros changements et de risques, n'hésitez pas à utiliser les branches !
+
+## Copie de .env en .env.local
+
+    cp .env .env.local
+
+### Choix de la DB et modification du `.env.local`
+
+```.env
+###> symfony/framework-bundle ###
+APP_ENV=dev
+APP_SECRET=OnChangeLaCLef
+###< symfony/framework-bundle ###
+
+###> doctrine/doctrine-bundle ###
+
+# DATABASE_URL="sqlite:///%kernel.project_dir%/var/data.db"
+DATABASE_URL="mysql://root:@127.0.0.1:3306/symentitiesg2?serverVersion=8.0.31&charset=utf8mb4"
+# DATABASE_URL="mysql://app:!ChangeMe!@127.0.0.1:3306/app?serverVersion=10.11.2-MariaDB&charset=utf8mb4"
+# DATABASE_URL="postgresql://app:!ChangeMe!@127.0.0.1:5432/app?serverVersion=16&charset=utf8"
+###< doctrine/doctrine-bundle ###
+```
+
