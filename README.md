@@ -218,3 +218,75 @@ class Post
 ```
 
 On doit refaire un `php bin/console make:migration puis une php bin/console d:m:m`
+
+### Création de l'entité `Section`
+
+    php bin/console make:entity Section
+
+On souhaite que la `Section` soit en relation `ManyToMany` avec `Post`
+
+```bash
+php bin/console make:entity Section
+ created: src/Entity/Section.php
+ created: src/Repository/SectionRepository.php
+
+ Entity generated! Now let's add some fields!
+ You can always add more fields later manually or by re-running this command.
+
+ New property name (press <return> to stop adding fields):
+ > sectionTitle
+
+ Field type (enter ? to see all types) [string]:
+ >
+
+
+ Field length [255]:
+ > 120
+
+ Can this field be null in the database (nullable) (yes/no) [no]:
+ >
+
+ updated: src/Entity/Section.php
+
+ Add another property? Enter the property name (or press <return> to stop adding fields):
+ > sectionDescription
+
+ Field type (enter ? to see all types) [string]:
+ >
+
+
+ Field length [255]:
+ > 500
+
+ Can this field be null in the database (nullable) (yes/no) [no]:
+ > yes
+
+ updated: src/Entity/Section.php
+
+ Add another property? Enter the property name (or press <return> to stop adding fields):
+ > sectionPost
+
+ Field type (enter ? to see all types) [string]:
+ > ManyToMany
+ManyToMany
+
+ What class should this entity be related to?:
+ > Post
+Post
+
+ Do you want to add a new property to Post so that you can access/update Section objects fro
+m it - e.g. $post->getSections()? (yes/no) [yes]:
+ >
+
+ A new property will also be added to the Post class so that you can access the related Sect
+ion objects from it.
+
+ New field name inside Post [sections]:
+ >
+
+ updated: src/Entity/Section.php
+ updated: src/Entity/Post.php
+
+```
+
+On refait une migration
