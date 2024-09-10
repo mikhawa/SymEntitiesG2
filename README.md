@@ -289,4 +289,9 @@ ion objects from it.
 
 ```
 
-On refait une migration
+On refait une migration, on a une table `section` et une table `m2m` `section_post`
+
+On va mettre manuellement 3 posts de test et 2 sections :
+
+
+
