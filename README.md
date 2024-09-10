@@ -73,3 +73,18 @@ DATABASE_URL="mysql://root:@127.0.0.1:3306/symentitiesg2?serverVersion=8.0.31&ch
     php bin/console doctrine:database:create
     
     Created database `symentitiesg2` for connection named default
+
+### Création de l'entité `Post`
+
+    php bin/console make:entity Post
+
+Création des fichiers 
+
+    src/Entity/Post.php
+    src/Repository/PostRepository.php
+
+Avec l'id comme seul attribut.
+
+Si on souhaite le remplir : 
+
+    php bin/console make:entity Post
