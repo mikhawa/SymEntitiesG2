@@ -1,20 +1,27 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello MainController!{% endblock %}
+{% block title %}Accueil{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+{{ dump(posts) }}
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <h1>Accueil</h1>
+            <p>Bienvenue sur mon blog</p>
+            <h2>Les derniers articles</h2>
+            {% for post in posts %}
+                <h3>{{ post.postTitle }}</h3>
+                <p>{{ post.postText }}</p>
+                <p>Publié le {{ post.postDateCreated|date('d/m/Y') }}</p>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>D:/WEB2024/PHP/Symfony/SymEntitiesG2/src/Controller/MainController.php</code></li>
-        <li>Your template at <code>D:/WEB2024/PHP/Symfony/SymEntitiesG2/templates/main/index.html.twig</code></li>
-    </ul>
-</div>
+                {% if post.sections %}
+                    {% for section in post.sections %}
+                        <p>{{ section.sectionTitle }} | {{ section.sectionDescription }}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    </div>
 {% endblock %}
