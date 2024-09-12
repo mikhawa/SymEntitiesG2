@@ -53,7 +53,8 @@ class Post
     /**
      * @var Collection<int, Section>
      */
-    #[ORM\ManyToMany(targetEntity: Section::class, mappedBy: 'sectionPost')]
+    #[ORM\ManyToMany(targetEntity: Section::class, inversedBy: 'sectionPost')]
+    #[ORM\JoinTable('section_post')]
     private Collection $sections;
 
     public function __construct()
