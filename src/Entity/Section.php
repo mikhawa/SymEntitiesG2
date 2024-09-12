@@ -28,7 +28,7 @@ class Section
     /**
      * @var Collection<int, Post>
      */
-    #[ORM\ManyToMany(targetEntity: Post::class, inversedBy: 'sections')]
+    #[ORM\ManyToMany(targetEntity: Post::class, mappedBy: 'sections')]
     private Collection $sectionPost;
 
     public function __construct()
